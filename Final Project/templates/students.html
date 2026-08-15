@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>👨‍🎓 Student List</h1>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Action</th>
+</tr>
+
+{% for s in data %}
+<tr>
+<td>{{s[1]}}</td>
+<td>{{s[2]}}</td>
+<td>
+<button onclick="del('{{s[1]}}')">🗑 Delete</button>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<button onclick="location.href='/admin'">⬅ Back</button>
+
+<script>
+function del(id){
+    if(confirm("Delete student?")){
+        window.location.href="/delete/"+id;
+    }
+}
+</script>
+
+</body>
+</html>

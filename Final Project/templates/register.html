@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>➕ Register Student</h1>
+
+<form method="POST">
+<input name="student_id" placeholder="Student ID" required>
+<input name="name" placeholder="Name" required>
+
+<select name="gender">
+<option>Male</option>
+<option>Female</option>
+</select>
+
+<input name="phone" placeholder="Phone" required>
+<input name="course" placeholder="Course" required>
+<input name="section" placeholder="Section" required>
+
+<button>📸 Register & Capture</button>
+</form>
+
+<button onclick="location.href='/admin'">⬅ Back</button>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>📸 Face Capture</h1>
+
+<div class="camera-box">
+<img src="{{ url_for('video') }}" width="650">
+</div>
+
+<p id="status">📷 Capturing... Please wait</p>
+
+<script>
+setInterval(() => {
+    fetch('/check_capture')
+    .then(res => res.text())
+    .then(data => {
+        if(data === "done"){
+            document.getElementById("status").innerText = "✅ Capture Completed! Redirecting...";
+            setTimeout(()=>{
+                window.location.href = "/admin";
+            },2000);
+        }
+    });
+}, 1000);
+</script>
+
+</body>
+</html>

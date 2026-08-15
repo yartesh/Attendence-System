@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>📊 Attendance Report</h1>
+
+<form method="GET">
+<input type="date" name="date">
+<input name="student" placeholder="Student ID or Name">
+<button>🔍 Filter</button>
+</form>
+
+<br>
+
+<a href="/export">
+<button>⬇ Download CSV</button>
+</a>
+
+<table>
+<tr>
+<th>Student ID</th>
+<th>Name</th>
+<th>Date</th>
+<th>Time</th>
+</tr>
+
+{% for r in data %}
+<tr>
+<td>{{r[0]}}</td>
+<td>{{r[1]}}</td>
+<td>{{r[2]}}</td>
+<td>{{r[3]}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<button onclick="location.href='/admin'">⬅ Back</button>
+
+</body>
+</html>
